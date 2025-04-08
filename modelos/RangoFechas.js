@@ -8,4 +8,6 @@ export class RangoFechas {
       return this.fechaInicio <= otroRango.fechaFin && this.fechaFin >= otroRango.fechaInicio;
     }
   }
+
+  
   

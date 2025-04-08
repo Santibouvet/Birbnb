@@ -1,5 +1,6 @@
 import { EstadoReserva } from '../enums/EstadoReserva.js';
 import { Reserva } from './Reserva.js';
+
 import { FactoryNotificacion } from './FactoryNotificacion.js';
 
 export class Alojamiento {

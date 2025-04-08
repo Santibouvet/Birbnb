@@ -11,19 +11,19 @@ export class Reserva {
     this.rangoFechas = rangoFechas;
     this.estado = EstadoReserva.PENDIENTE;
     this.precioPorNoche = precioPorNoche;
-    this.cambiosEstado = [];
+    // this.cambiosEstado = [];
   }
 
-  actualizarEstado(nuevoEstado, motivo, usuario) {
+  actualizarEstado(nuevoEstado) {
     this.estado = nuevoEstado;
-    const cambio = new CambioEstadoReserva(new Date(), nuevoEstado, this, motivo, usuario);
-    this.cambiosEstado.push(cambio);
+    // const cambio = new CambioEstadoReserva(new Date(), nuevoEstado, this, motivo, usuario);
+    // this.cambiosEstado.push(cambio);
 
     if (nuevoEstado === EstadoReserva.CONFIRMADA) {
       this.huespedReservador.recibirNotificacion(FactoryNotificacion.crearConfirmacion(this));
     } else if (nuevoEstado === EstadoReserva.CANCELADA) {
       this.alojamiento.anfitrion.recibirNotificacion(FactoryNotificacion.crearCancelacion(this, motivo));
     }
-    return cambio;
+    
   }
 }
